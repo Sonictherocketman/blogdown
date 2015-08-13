@@ -3,6 +3,13 @@ Blogdown
 
 A simple markdown add-on and parser for writing blog posts.
 
+Installation
+------------
+
+Clone this repo and run:
+
+    python setup.py install
+
 Format
 ------
 
