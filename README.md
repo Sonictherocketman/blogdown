@@ -49,22 +49,18 @@ API
 
 Once you have a blogdown formatted post, parsing it is really simple.
 
-`python
+    from blogdown import parse
 
-from blogdown import Blogdown, parse
+    text = get_text()
+    post = parse(text) 
 
-text = get_text()
-post = parse(text) 
+    print post.title
+    >>> 'Here's your title'
 
-print post.title
->>> 'Here's your title'
-`
+You can also make your own Blogdown object easily.
 
+    from blogdown import Blogdown
 
-
-
-
-
-
-
-
+    post = Blogdown(title='Some lovely title', 
+        author='My name',
+        content='This is the best thing ever!')
