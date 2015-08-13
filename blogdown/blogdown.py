@@ -8,8 +8,6 @@ since: 2015-08-12
 """
 
 
-import re
-
 from markdown import markdown
 
 
@@ -18,8 +16,6 @@ metadata = ['template','title', 'author', 'status', 'tags',
 
 
 class Blogdown(object):
-    """
-    """
 
     def __repr__(self):
         if getattr(self, 'title' , True):
@@ -54,7 +50,3 @@ def parse(text):
     data['content'] = '\n'.join(lines).strip()
     data['html'] = markdown(data['content'])
     return Blogdown(**data)
-
-
-
-
