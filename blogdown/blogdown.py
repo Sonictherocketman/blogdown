@@ -47,6 +47,6 @@ def parse(text):
         else:
             lines.append(line)
 
-    data['content'] = '\n'.join(lines).strip()
-    data['html'] = markdown(data['content'])
+    data['markdown'] = '\n'.join(lines).rstrip()
+    data['content'] = markdown(data['markdown'])
     return Blogdown(**data)

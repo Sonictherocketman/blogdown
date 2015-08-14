@@ -70,4 +70,4 @@ You can also make your own Blogdown object easily.
 
     post = Blogdown(title='Some lovely title', 
         author='My name',
-        content='This is the best thing ever!')
+        markdown='This is the best thing ever!')
