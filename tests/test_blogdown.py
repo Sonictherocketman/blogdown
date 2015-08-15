@@ -26,7 +26,7 @@ class BlogdownTest(unittest.TestCase):
         b = parse(text)
         self.assertEqual(title, b.title)
         self.assertEqual(author, b.author)
-        self.assertEqual(content, b.content)
+        self.assertEqual(content, b.markdown.strip())
 
     def test_complex_parse(self):
         title = 'Cheese shoppe'
@@ -46,7 +46,29 @@ class BlogdownTest(unittest.TestCase):
         b = parse(text)
         self.assertEqual(title, b.title)
         self.assertEqual(author, b.author)
-        self.assertEqual(content.strip(), b.content)
+        self.assertEqual(content.strip(), b.markdown.strip())
+
+    def test_interwoven_tags(self):
+        title = 'Cheese shoppe'
+        author = 'King Arthur'
+        published = 'today'
+        content = """
+        This is some cool: colon seperated: content.
+        and even a...
+        fake-tag: with a value
+        <heres>even</some>fake html
+        this is teh content.\n and so is this.
+        """
+        text = """
+        title: {}
+        author: {}
+
+        {}
+        published:{}""".format(title, author, content, published)
+        b = parse(text)
+        self.assertEqual(title, b.title)
+        self.assertEqual(author, b.author)
+        self.assertEqual(content.strip(), b.markdown.strip())
 
 
 if __name__ == '__main__':
