@@ -8,23 +8,26 @@ Installation
 
 Clone this repo and run:
 
-    python setup.py install
+```shell
+python setup.py install
+```
 
 Format
 ------
 
 A blog post looks like this:
 
-    title: A title goes here!
-    author: John Doe
-    tags: you, can put, tags, here
-    status: draft
+```markdown
+title: A title goes here!
+author: John Doe
+tags: you, can put, tags, here
+status: draft
 
-    This is where you say something insightful. Many blog posts
-    are just [links][1] to something else!
+This is where you say something insightful. Many blog posts
+are just [links][1] to something else!
 
-    [1]: http://example.com
-
+[1]: http://example.com
+```
 A blog post can have multiple markers at the top to specify metadata about the
 post. The supported markers are:
 
@@ -56,18 +59,22 @@ API
 
 Once you have a blogdown formatted post, parsing it is really simple.
 
-    from blogdown import parse
+```python
+from blogdown import parse
 
-    text = get_text()
-    post = parse(text) 
+text = get_text()
+post = parse(text) 
 
-    print post.title
-    >>> 'Here's your title'
+print post.title
+>>> 'Here's your title'
+```
 
 You can also make your own Blogdown object easily.
 
-    from blogdown import Blogdown
+```python
+from blogdown import Blogdown
 
-    post = Blogdown(title='Some lovely title', 
-        author='My name',
-        markdown='This is the best thing ever!')
+post = Blogdown(title='Some lovely title', 
+    author='My name',
+    markdown='This is the best thing ever!')
+```
